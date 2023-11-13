@@ -38,6 +38,8 @@ Example project with pytorch and GPUs using poetry.
         * Note that you can split up your dependencies by groups for your own logical organization.  You can also install the dependencies leaving out specific groups.
     * I have included an example config that shows how to add pytorch CPU/GPU in the `pyproject.toml` file.
         * Specifically, it shows you how to specify a custom URL source to install pytorch so that you can force poetry to install the specific pytorch GPU package that is compatible with your CUDA version.
+        * Comment out the CPU package spec & uncomment GPU package spec in the `pyproject.toml` file to build a pytorch GPU environment. 
+        * Comment out the GPU package spec & uncomment CPU package spec in the `pyproject.toml` file to build a pytorch CPU environment. 
     * Note that poetry has a slightly different dependency specification syntax than pip and conda which allows for more expressiveness in your package dependencies: https://python-poetry.org/docs/dependency-specification/
     * Also note that if you have other development tools like `black`, `mypy`, `ruff`, these can all be configured in the same `pyproject.toml` file.  This makes this file (almost) a universal project settings configuration file.
 
