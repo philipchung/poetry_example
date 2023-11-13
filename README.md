@@ -59,6 +59,7 @@ Example project with pytorch and GPUs using poetry.
     * Create virtul environment: `poetry shell`.  Creates virtual environment and launches a new shell environment where all
     dependencies.
         * When you run your command, it will also tell you the path to where your virtual environment lists.  You can also find the location with `poetry show -v`.  If you use jupyter notebooks, you can point your notebook to this virtual environment (or the python binary in this virtual environment), and then your notebook will run using the python environment you specified.
+        * If you're using VSCode, you need to tell VSCode where to look for poetry environments.  In VSCode Settings, look for setting `Python: Venv Path` and add `$HOME/.cache/pypoetry/virtualenvs/`.  If you restart VSCode, it should now look at that location for virtual environments/python kernels.
     * If you don't want to enter the shell, but you want to run a script in the virtual environment: `poetry run python myscript.py`
 
 7. Importing your own code/package in a script or notebook is easy.  Poetry automatically builds the package for you if you specify it and installs it in your virtual environment.
