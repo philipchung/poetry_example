@@ -4,14 +4,32 @@ Example project with pytorch and GPUs using poetry.
 ## Steps:
 1. (optional) Install Pyenv: https://github.com/pyenv/pyenv
     * If you decide to use Pyenv, do this first
-    * Follow OS-specific installation guide & add startup commands to .bashrc/.zshrc file.  On Linux this may require installing some linux packages.
-    * Download specific python versions: `pyenv install 3.11`, `pyenv install 3.8.10`
-    * List all the python version you can install: `pyenv install -l`
-    * Set global python version: `pyenv local 3.8.10`
-    * List python versions installed with pyenv: `pyenv versions`
-    * Within a specific directory, set local python version `pyenv local 3.11`
+    * Follow OS-specific installation guide & add startup commands to shell configuration file (.bashrc/.zshrc).  On Linux this may require installing some linux packages.
+        ```sh
+        # Load pyenv automatically by appending
+        # the following to 
+        # ~/.bash_profile if it exists, otherwise ~/.profile (for login shells)
+        # and ~/.bashrc (for interactive shells) :
+        export PYENV_ROOT="$HOME/.pyenv"
+        [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+        eval "$(pyenv init -)"
 
-2. Install Poetry: https://python-poetry.org/docs/#installation
+        # Load pyenv-virtualenv automatically by adding
+        # the following to ~/.bashrc:
+        eval "$(pyenv virtualenv-init -)"
+        ```
+    * Restart shell: `exec $SHELL`
+    * How to Use:
+        * Download specific python versions: `pyenv install 3.11`, `pyenv install 3.8.10`
+        * List all the python version you can install: `pyenv install -l`
+        * Set global python version: `pyenv local 3.8.10`
+        * List python versions installed with pyenv: `pyenv versions`
+        * Within a specific directory, set local python version `pyenv local 3.11`
+
+2. Install Poetry: https://python-poetry.org/docs/#installing-with-the-official-installer
+    * `curl -sSL https://install.python-poetry.org | python3 -`
+    * Add `export PATH="$HOME/.local/bin:$PATH"` to your shell configuration file (.bashrc/.zshrc).
+    * Restart shell: `exec $SHELL`
 
 3. Create Poetry project: https://python-poetry.org/docs/basic-usage/
     * `poetry new poetry-example`
