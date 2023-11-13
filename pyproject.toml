@@ -27,24 +27,22 @@ langchain = "^0.0.292"
 openai = "^0.28.1"
 
 ### Comment out for GPU torch install
-[tool.poetry.group.cpu]
-optional = true
-
-[tool.poetry.group.cpu.dependencies]
-torch = "^2.1.0"
-torchvision = "^0.16.0"
-torchaudio = "^2.1.0"
-
-### Comment out for CPU torch install
-# [tool.poetry.group.gpu]
+# [tool.poetry.group.cpu]
 # optional = true
 
-# [tool.poetry.group.gpu.dependencies]
-# xformers = "^0.0.21"
-# bitsandbytes = "^0.41.1"
-# torch = {version = "^2.1.0+cu118", source = "pytorch-gpu-src"}
-# torchvision = {version = "^0.16.0+cu118", source = "pytorch-gpu-src"}
-# torchaudio = {version = "^2.1.0+cu118", source = "pytorch-gpu-src"}
+# [tool.poetry.group.cpu.dependencies]
+# torch = "^2.1.0"
+# torchvision = "^0.16.0"
+# torchaudio = "^2.1.0"
+
+### Comment out for CPU torch install
+[tool.poetry.group.gpu]
+optional = true
+
+[tool.poetry.group.gpu.dependencies]
+torch = {version = "^2.1.0+cu118", source = "pytorch-gpu-src"}
+torchvision = {version = "^0.16.0+cu118", source = "pytorch-gpu-src"}
+torchaudio = {version = "^2.1.0+cu118", source = "pytorch-gpu-src"}
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.7.0"
